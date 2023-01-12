@@ -1,6 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
+import React from "react";
+import "../src/styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
+     <ThemeProvider enableSystem={true} attribute="class">
+          <Component {...pageProps} />
+    </ThemeProvider>
+    </>
+
+      );
+    }
+
+export default MyApp;
